@@ -28,11 +28,44 @@ options.load_capabilities({
 # Create a new Appium WebDriver session using the correct 'webdriver.Remote' call
 driver = webdriver.Remote("http://127.0.0.1:4723", options=options)
 
-# Find and interact with elements
-el1 = driver.find_element(by=AppiumBy.CLASS_NAME, value="XCUIElementTypeSecureTextField")
-el1.send_keys("Yaali123456")
-el2 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value='**/XCUIElementTypeButton[`name == "ورود به بلو"`]')
-el2.click()
+# select UAT env
+logo = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Brand Blu Logo EN")
+logo.click()
+select_env = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="APIM-UAT, https://apim-qa.sdb247.com/openapi/v0")
+select_env.click()
+dismiss_env = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Dismiss")
+dismiss_env.click()
+
+# Login
+username = driver.find_element(by=AppiumBy.CLASS_NAME, value="XCUIElementTypeTextField")
+username.clear()
+username.send_keys("saman.kh")
+password = driver.find_element(by=AppiumBy.CLASS_NAME, value="XCUIElementTypeSecureTextField")
+time.sleep(.5)
+password.clear()
+password.send_keys("Ss123456")
+time.sleep(.5)
+show_pass = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Icons General Eye Hide Regular")
+show_pass.click()
+login = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeButton[`name == \"ورود به بلو\"`]")
+login.click()
+time.sleep(2)
+
+
+#Otp Page
+# el10 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[6]/XCUIElementTypeStaticText")
+# el10.send_keys("1")
+# el11 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[5]/XCUIElementTypeStaticText")
+# el11.send_keys("1")
+# el12 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[4]/XCUIElementTypeStaticText")
+# el12.send_keys("1")
+# el13 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeStaticText")
+# el13.send_keys("1")
+# el14 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeStaticText")
+# el14.send_keys("1")
+# el15 = driver.find_element(by=AppiumBy.IOS_CLASS_CHAIN, value="**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextView/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeStaticText")
+# el15.send_keys("1")
+
 
 time.sleep(5)
 
